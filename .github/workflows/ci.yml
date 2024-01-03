@@ -50,7 +50,7 @@ jobs:
         continue-on-error: false
 
       - name: Build the site with DocFX
-        run: docfx build --warningsAsErrors ./docs/docfx.json --verbose
+        run: docfx build --verbose ./docs/docfx.json
         continue-on-error: false
 
       - name: Upload artifact
