@@ -23,7 +23,6 @@
           "*.{md,yml}",
           "general/**/*.{md,yml}",
           "services/**/*.{md,yml}",
-          "reference/**/*.{md,yml}",
           ".docfx/x-cross/toc.yml"
         ]
       }
