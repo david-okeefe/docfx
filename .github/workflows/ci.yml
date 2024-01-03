@@ -23,6 +23,18 @@ jobs:
       - name: Install DocFX
         run: dotnet tool install --global docfx --version 2.74.1
 
+      - name: Install DocFX Companion Tools
+        run: |
+          dotnet tool install DocFxTocGenerator -g
+          dotnet tool install DocLanguageTranslator -g
+          dotnet tool install DocLinkChecker -g
+          dotnet tool install DocFxOpenApi -g
+
+      - name: Generate the Table of Contents
+        run: |
+          docfxtocgenerator -d ./docs/general -sri
+          docfxtocgenerator -d ./docs/services -sri
+
       - name: Build with Docfx
         run: docfx build  --warningsAsErrors ./docs/docfx.json
 
