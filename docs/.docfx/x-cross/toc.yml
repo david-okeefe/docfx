@@ -1,5 +1,5 @@
 items:
 - name: Services
   href: ../../services/toc.yml
-- name: Reference
-  href: ../../reference/toc.yml
+- name: General
+  href: ../../general/toc.yml
