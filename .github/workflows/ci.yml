@@ -42,7 +42,7 @@ jobs:
         run: choco install docfx-companion-tools -y
 
       - name: Generate the Table of Contents for General
-        run: DocFxTocGenerator -d ./docs/general -sri
+        run: DocFxTocGenerator -d ./docs/general -sri -v
         continue-on-error: false
 
       - name: Generate the Table of Contents for Services
