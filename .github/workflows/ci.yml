@@ -41,11 +41,30 @@ jobs:
         shell: pwsh
         run: choco install docfx-companion-tools -y
 
-      - name: Generate the Table of Contents for General
-        run: DocFxTocGenerator -d ./docs/general -sri
+      - name: Generate the Table of Contents
+        run: DocFxTocGenerator -d ./docs -sri
+        continue-on-error: false
 
-      - name: Generate the Table of Contents for Services
-        run: DocFxTocGenerator -d ./docs/services -sri
-
-      - name: Build with Docfx
+      - name: Build the site with Docfx
         run: docfx build  --warningsAsErrors ./docs/docfx.json
+        continue-on-error: false
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site/
+
+  # Deploy to GitHub Pages
+  deploy:
+    
+    name: "Deploy to GitHub Pages"
+    runs-on: windows-latest
+    
+    environment:
+      name: github-pages
+    needs: build
+    
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
