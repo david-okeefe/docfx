@@ -1,21 +1,4 @@
 {
-  "metadata": [
-    {
-      "src": [
-        {
-          "src": "../src",
-          "files": ["**.csproj"],
-          "exclude": ["**/bin/**", "**/obj/**", "**/[Tt]ests/**"]
-        }
-      ],
-      "dest": "./reference",
-      "includePrivateMembers": false,
-      "disableGitFeatures": false,
-      "disableDefaultFilter": false,
-      "noRestore": false,
-      "namespaceLayout": "flattened"
-    }
-  ],
   "build": {
     "content": [
       {
@@ -28,19 +11,31 @@
       }
     ],
     "resource": [
-      { "files": [".attachments/**", "**/.attachments/**", "**/images/**"] },
-      { "files": ["web.config"] }
+      {
+        "files": [
+          ".attachments/**", 
+          "**/.attachments/**", 
+          "**/images/**"
+        ]
+      },
     ],
     "dest": "_site",
     "globalMetadata": {
       "_appTitle": "QuickStart Documentation",
-      "_appName": "QUickStart Documentation",
       "_appLogoPath": "images/logo.png",
       "_appFaviconPath": "images/favicon.ico",
       "_enableSearch": true,
       "_enableNewTab": true
+      "_gitContribute": {
+          "repo": "https://github.com/david-okeefe/docfx",
+          "branch": "main"
+      },
+      "_gitUrlPattern": "github"
     },
-    "template": ["default", ".docfx/template"],
+    "template": [
+      "default", 
+      ".docfx/template"
+    ],
     "globalMetadataFiles": [],
     "fileMetadataFiles": [],
     "postProcessors": [],
