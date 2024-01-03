@@ -17,7 +17,7 @@
           "**/.attachments/**", 
           "**/images/**"
         ]
-      },
+      }
     ],
     "dest": "_site",
     "globalMetadata": {
@@ -25,7 +25,7 @@
       "_appLogoPath": "images/logo.png",
       "_appFaviconPath": "images/favicon.ico",
       "_enableSearch": true,
-      "_enableNewTab": true
+      "_enableNewTab": true,
       "_gitContribute": {
           "repo": "https://github.com/david-okeefe/docfx",
           "branch": "main"
