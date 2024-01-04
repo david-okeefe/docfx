@@ -13,7 +13,7 @@
     "resource": [
       {
         "files": [
-          ".attachments/**"
+          ".attachments/**",
           "images/**"
         ]
       }
