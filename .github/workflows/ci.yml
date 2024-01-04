@@ -40,12 +40,8 @@ jobs:
         shell: pwsh
         run: choco install docfx-companion-tools -y
 
-      - name: Generate Table of Contents for General
-        run: DocFxTocGenerator -d ./docs/general -sri -v
-        continue-on-error: false
-
-      - name: Generate Table of Contents for Services
-        run: DocFxTocGenerator -d ./docs/services -sri
+      - name: Generate Table of Contents
+        run: DocFxTocGenerator -d ./docs/ -sri -v
         continue-on-error: false
 
       - name: Build site with DocFX

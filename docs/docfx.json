@@ -24,8 +24,7 @@
       "modern"
     ],
     "globalMetadata": {
-      "_appName": "docfx",
-      "_appFooter": "",
+      "_appName": "docs",
       "_appLogoPath": "images/americas-gps-logo.png",
       "_appFaviconPath": "images/americas-gps-favicon.ico",
       "_enableSearch": true,
@@ -41,7 +40,6 @@
     "noLangKeyword": false,
     "keepFileLink": false,
     "disableGitFeatures": false,
-    "xrefService": ["https://xref.docs.microsoft.com/query?uid={uid}"],
     "markdownEngineName": "markdig",
     "markdownEngineProperties": {
       "markdigExtensions": [

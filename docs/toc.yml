@@ -4,3 +4,18 @@
 - name: Services
   href: /docfx/services/
   homepage: /docfx/services/index.html
+- name: Policies
+  href: /docfx/policies/
+  homepage: /docfx/policies/index.html
+- name: Processes
+  href: /docfx/processes/
+  homepage: /docfx/processes/index.html
+- name: Policies
+  href: /docfx/policies/
+  homepage: /docfx/policies/index.html
+- name: Guides
+  href: /docfx/guides/
+  homepage: /docfx/guides/index.html
+- name: Best Practices
+  href: /docfx/best-practices/
+  homepage: /docfx/best-practices/index.html
