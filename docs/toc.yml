@@ -1,6 +1,6 @@
 - name: General
   href: /docfx/general/
-  homepage: /docfx/general/README.html
+  homepage: /docfx/general/index.html
 - name: Services
   href: /docfx/services/
-  homepage: /docfx/services/README.html
+  homepage: /docfx/services/index.html
