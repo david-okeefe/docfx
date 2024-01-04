@@ -3,6 +3,7 @@
     "content": [
       {
         "files": [
+          "**/*.{md,yml}",
           "policies/**/*.{md,yml}",
           "processes/**/*.{md,yml}",
           "procedures/**/*.{md,yml}",
