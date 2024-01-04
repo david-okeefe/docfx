@@ -23,10 +23,10 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # Build the site with DocFX
+  # Build site with DocFX
   build:
 
-    name: "Build the site with DocFX"
+    name: "Build site with DocFX"
     runs-on: windows-latest
 
     steps:
@@ -40,16 +40,16 @@ jobs:
         shell: pwsh
         run: choco install docfx-companion-tools -y
 
-      - name: Generate the Table of Contents for General
+      - name: Generate Table of Contents for General
         run: DocFxTocGenerator -d ./docs/general -sri -v
         continue-on-error: false
 
-      - name: Generate the Table of Contents for Services
+      - name: Generate Table of Contents for Services
         run: DocFxTocGenerator -d ./docs/services -sri
         continue-on-error: false
 
-      - name: Build the site with DocFX
-        run: docfx build -l verbose docs/.docfx.json
+      - name: Build site with DocFX
+        run: docfx build -l verbose docs/docfx.json
         continue-on-error: false
 
       - name: Upload artifact
