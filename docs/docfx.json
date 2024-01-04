@@ -24,10 +24,10 @@
       "modern"
     ],
     "globalMetadata": {
-      "_appName": "QuickStart Documentation",
+      "_appName": "docfx",
       "_appFooter": "",
-      "_appLogoPath": "images/logo.png",
-      "_appFaviconPath": "images/favicon.ico",
+      "_appLogoPath": "images/americas-gps-logo.png",
+      "_appFaviconPath": "images/americas-gps-favicon.ico",
       "_enableSearch": true,
       "_enableNewTab": true,
       "_gitContribute": {
