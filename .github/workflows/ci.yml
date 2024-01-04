@@ -49,13 +49,13 @@ jobs:
         continue-on-error: false
 
       - name: Build the site with DocFX
-        run: docfx build -l verbose ./docs/docfx.json
+        run: docfx build -l verbose docs/.docfx.json
         continue-on-error: false
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./docs/_site/
+          path: _site/
 
   # Deploy to GitHub Pages
   deploy:
