@@ -31,6 +31,7 @@
     "globalMetadata": {
       "_appLogoPath": "images/americas-gps-logo.png",
       "_appFaviconPath": "images/americas-gps-world-favicon.ico",
+      "_appFooter": "<span>Customized Footer</span>",
       "_enableSearch": true,
       "_enableNewTab": true,
       "_disableNextArticle": true,
