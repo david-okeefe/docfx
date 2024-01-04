@@ -4,9 +4,9 @@
 - name: Processes
   href: /docfx/processes/
   homepage: /docfx/processes/index.html
-- name: Policies
-  href: /docfx/policies/
-  homepage: /docfx/policies/index.html
+- name: Procedures
+  href: /docfx/procedures/
+  homepage: /docfx/procedures/index.html
 - name: Guides
   href: /docfx/guides/
   homepage: /docfx/guides/index.html
