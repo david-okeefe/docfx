@@ -3,7 +3,7 @@
     "content": [
       {
         "files": [
-          "*.{md,yml}",
+          "**/*.{md,yml}"
           "general/**/*.{md,yml}",
           "services/**/*.{md,yml}",
           ".docfx/x-cross/toc.yml"
@@ -13,29 +13,29 @@
     "resource": [
       {
         "files": [
-          ".attachments/**", 
-          "**/.attachments/**", 
-          "**/images/**"
+          ".attachments/**"
+          "images/**"
         ]
       }
     ],
-    "dest": "_site",
+    "output": "_site",
+    "template": [
+      "default",
+      "modern"
+    ],
     "globalMetadata": {
       "_appTitle": "QuickStart Documentation",
       "_appLogoPath": "images/logo.png",
       "_appFaviconPath": "images/favicon.ico",
       "_enableSearch": true,
       "_enableNewTab": true,
+      "pdf": true,
       "_gitContribute": {
           "repo": "https://github.com/david-okeefe/docfx",
           "branch": "main"
       },
       "_gitUrlPattern": "github"
     },
-    "template": [
-      "default", 
-      ".docfx/template"
-    ],
     "globalMetadataFiles": [],
     "fileMetadataFiles": [],
     "postProcessors": [],
