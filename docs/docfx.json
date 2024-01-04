@@ -24,17 +24,16 @@
       "modern"
     ],
     "globalMetadata": {
-      "_appTitle": "QuickStart Documentation",
+      "_appName": "QuickStart Documentation",
+      "_appFooter": "",
       "_appLogoPath": "images/logo.png",
       "_appFaviconPath": "images/favicon.ico",
       "_enableSearch": true,
       "_enableNewTab": true,
-      "pdf": true,
       "_gitContribute": {
           "repo": "https://github.com/david-okeefe/docfx",
           "branch": "main"
-      },
-      "_gitUrlPattern": "github"
+      }
     },
     "globalMetadataFiles": [],
     "fileMetadataFiles": [],
