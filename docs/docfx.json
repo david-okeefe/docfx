@@ -3,7 +3,11 @@
     "content": [
       {
         "files": [
-          "**/*.{md,yml}"
+          "policies/**/*.{md,yml}",
+          "processes/**/*.{md,yml}",
+          "procedures/**/*.{md,yml}",
+          "guides/**/*.{md,yml}",
+          "best-practices/**/*.{md,yml}"
         ],
         "exclude": [
           "_site/**"
@@ -29,6 +33,7 @@
       "_appFaviconPath": "images/americas-gps-favicon.ico",
       "_enableSearch": true,
       "_enableNewTab": true,
+      "_disableNextArticle": true,
       "_gitContribute": {
           "repo": "https://github.com/david-okeefe/docfx",
           "branch": "main"
