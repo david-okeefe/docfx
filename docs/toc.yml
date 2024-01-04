@@ -1,9 +1,3 @@
-- name: General
-  href: /docfx/general/
-  homepage: /docfx/general/index.html
-- name: Services
-  href: /docfx/services/
-  homepage: /docfx/services/index.html
 - name: Policies
   href: /docfx/policies/
   homepage: /docfx/policies/index.html
