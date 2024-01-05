@@ -40,6 +40,14 @@ jobs:
         shell: pwsh
         run: choco install docfx-companion-tools -y
 
+      - name: Check for Markdown Syntax Errors
+        run: markdownlint ./docs/*.md
+        continue-on-error: false
+
+      - name: Check for Invalid Links
+        run: doclinkchecker -d ./docs -a
+        continue-on-error: false
+
       - name: Generate Table of Contents for Policies
         run: DocFxTocGenerator -d ./docs/policies/ -sri
         continue-on-error: false
@@ -60,11 +68,11 @@ jobs:
         run: DocFxTocGenerator -d ./docs/best-practices/ -sri
         continue-on-error: false
 
-      - name: Build site with DocFX
+      - name: Build Site with DocFX
         run: docfx build --warningsAsErrors ./docs/docfx.json
         continue-on-error: false
 
-      - name: Upload artifact
+      - name: Upload Artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./docs/_site/
