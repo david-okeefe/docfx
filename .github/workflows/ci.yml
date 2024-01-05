@@ -44,6 +44,7 @@ jobs:
         uses: DavidAnson/markdownlint-cli2-action@v14
         with:
           config: '.markdownlint.json'
+          fix: true
           globs: '**/docs/*.md'
 
       - name: Check for Invalid Links
