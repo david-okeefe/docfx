@@ -41,11 +41,13 @@ jobs:
         run: choco install docfx-companion-tools -y
 
       - name: Check for Markdown Syntax Errors
-        run: markdownlint ./docs/*.md
-        continue-on-error: false
+        uses: DavidAnson/markdownlint-cli2-action@v14
+        with:
+          config: '.markdownlint.json'
+          globs: '**/docs/*.md'
 
       - name: Check for Invalid Links
-        run: doclinkchecker -d ./docs -a
+        run: DocLinkChecker -d ./docs -a
         continue-on-error: false
 
       - name: Generate Table of Contents for Policies
@@ -68,7 +70,7 @@ jobs:
         run: DocFxTocGenerator -d ./docs/best-practices/ -sri
         continue-on-error: false
 
-      - name: Build Site with DocFX
+      - name: Build site with DocFX
         run: docfx build --warningsAsErrors ./docs/docfx.json
         continue-on-error: false
 
