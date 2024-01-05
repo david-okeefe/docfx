@@ -43,7 +43,7 @@ jobs:
       - name: Check for Markdown Syntax Errors
         uses: DavidAnson/markdownlint-cli2-action@v14
         with:
-          config: './docs/markdownlint.json'
+          config: './docs/.markdownlint.json'
           fix: true
           globs: '**/*.md'
 
