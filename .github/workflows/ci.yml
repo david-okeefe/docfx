@@ -45,7 +45,7 @@ jobs:
         with:
           config: '.markdownlint.json'
           fix: true
-          globs: '**/docs/*.md'
+          globs: '**/*.md'
 
       - name: Check for Invalid Links
         run: DocLinkChecker -d ./docs -a
