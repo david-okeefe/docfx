@@ -41,27 +41,27 @@ jobs:
         run: choco install docfx-companion-tools -y
 
       - name: Generate Table of Contents for Policies
-        run: DocFxTocGenerator -d ./docs/policies/ -sri -v
+        run: DocFxTocGenerator -d ./docs/policies/ -sri
         continue-on-error: false
 
       - name: Generate Table of Contents for Processes
-        run: DocFxTocGenerator -d ./docs/processes/ -sri -v
+        run: DocFxTocGenerator -d ./docs/processes/ -sri
         continue-on-error: false
 
       - name: Generate Table of Contents for Procedures
-        run: DocFxTocGenerator -d ./docs/procedures/ -sri -v
+        run: DocFxTocGenerator -d ./docs/procedures/ -sri
         continue-on-error: false
 
       - name: Generate Table of Contents for Guides
-        run: DocFxTocGenerator -d ./docs/guides/ -sri -v
+        run: DocFxTocGenerator -d ./docs/guides/ -sri
         continue-on-error: false
 
       - name: Generate Table of Contents for Best Practices
-        run: DocFxTocGenerator -d ./docs/best-practices -sri -v
+        run: DocFxTocGenerator -d ./docs/best-practices/ -sri
         continue-on-error: false
 
       - name: Build site with DocFX
-        run: docfx build -l verbose ./docs/docfx.json
+        run: docfx build --warningsAsErrors ./docs/docfx.json
         continue-on-error: false
 
       - name: Upload artifact
