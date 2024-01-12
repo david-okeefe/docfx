@@ -85,7 +85,7 @@ jobs:
     needs: build
     
     name: "Deploy to GitHub Pages and Upload to Azure Blob Storage"
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     
     environment:
       name: github-pages
