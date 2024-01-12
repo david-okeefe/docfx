@@ -82,15 +82,38 @@ jobs:
 
   # Deploy to GitHub Pages
   deploy:
+    needs: build
     
-    name: "Deploy to GitHub Pages"
+    name: "Deploy to GitHub Pages and Upload to Azure Blob Storage"
     runs-on: windows-latest
     
     environment:
       name: github-pages
-    needs: build
     
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Check out the code
+        uses: actions/checkout@v3
+        with:
+          sparse-checkout: docs
+      
+      - name: Log in to Azure
+        uses: uses: azure/login@v1
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      - name: Upload to Azure Blob Storage
+        uses: azure/CLI@v1
+        with:
+          inlineScript: |
+            az storage blob upload-batch --account-name ${{ vars.AZURE_STORAGE_ACCOUNT_NAME }} --account-key ${{ secrets.AZURE_STORAGE_ACCOUNT_KEY }} --auth-mode key -d '${{ vars.AZURE_STORAGE_ACCOUNT_CONTAINER }}' -s . --pattern *.md --overwrite
+            
+      - name: Log out of Azure
+        run: |
+              az logout
+        if: always()
