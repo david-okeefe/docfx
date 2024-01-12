@@ -101,7 +101,7 @@ jobs:
           sparse-checkout: docs
       
       - name: Log in to Azure
-        uses: uses: azure/login@v1
+        uses: azure/login@v1
         with:
           client-id: ${{ secrets.AZURE_CLIENT_ID }}
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
