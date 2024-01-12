@@ -85,7 +85,7 @@ jobs:
     needs: build
     
     name: "Deploy to GitHub Pages and Upload to Azure Blob Storage"
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     
     environment:
       name: github-pages
@@ -107,12 +107,11 @@ jobs:
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
-      - name: Install AzCopy
-        shell: pwsh
-        run: choco install azcopy10 -y
-
       - name: Upload to Azure Blob Storage
-        run: azcopy copy "\*" "https://${{ vars.AZURE_STORAGE_ACCOUNT_NAME }}.blob.core.windows.net/${{ vars.AZURE_STORAGE_ACCOUNT_CONTAINER }}" --include-pattern "*.md;attachments/*;images/*;" --recursive
+        uses: azure/CLI@v1
+        with:
+          inlineScript: |
+            az storage blob upload-batch --account-name ${{ vars.AZURE_STORAGE_ACCOUNT_NAME }} --account-key ${{ secrets.AZURE_STORAGE_ACCOUNT_KEY }} --auth-mode key -d '${{ vars.AZURE_STORAGE_ACCOUNT_CONTAINER }}' -s . --pattern *.md --overwrite --recursive
             
       - name: Log out of Azure
         run: |
