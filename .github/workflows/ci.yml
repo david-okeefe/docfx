@@ -85,7 +85,7 @@ jobs:
     needs: build
     
     name: "Deploy to GitHub Pages and Upload to Azure Blob Storage"
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     
     environment:
       name: github-pages
@@ -99,10 +99,6 @@ jobs:
         uses: actions/checkout@v3
         with:
           sparse-checkout: docs
-
-      - name: Install AzCopy
-        shell: pwsh
-        run: choco install azcopy10 -y
       
       - name: Log in to Azure
         uses: azure/login@v1
@@ -111,13 +107,11 @@ jobs:
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
-      - name: Log in to AzCopy
-        run: |
-          set AZCOPY_AUTO_LOGIN_TYPE=MSI
-          set AZCOPY_MSI_CLIENT_ID=${{ secrets.AZURE_CLIENT_ID }}
-
       - name: Upload to Azure Blob Storage
-        run: azcopy copy "*" "https://${{ vars.AZURE_STORAGE_ACCOUNT_NAME }}.blob.core.windows.net/${{ vars.AZURE_STORAGE_ACCOUNT_CONTAINER }}" --exclude-pattern "*.json;*.yml;" --recursive
+        uses: azure/CLI@v1
+        with:
+          inlineScript: |
+            az storage blob sync -c ${{ vars.AZURE_STORAGE_ACCOUNT_CONTAINER }} --account-name ${{ vars.AZURE_STORAGE_ACCOUNT_NAME }} --account-key ${{ secrets.AZURE_STORAGE_ACCOUNT_KEY }} -s . --exclude-pattern "*.yaml;*.json;" --delete-destination
             
       - name: Log out of Azure
         run: |
