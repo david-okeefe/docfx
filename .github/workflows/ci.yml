@@ -112,10 +112,10 @@ jobs:
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
       - name: Log in to AzCopy
-        run: export AZCOPY_MSI_CLIENT_ID=${{ secrets.AZURE_CLIENT_ID }}
+        run: set AZCOPY_MSI_CLIENT_ID=${{ secrets.AZURE_CLIENT_ID }}
 
       - name: Upload to Azure Blob Storage
-        run: azcopy copy "\*" "https://${{ vars.AZURE_STORAGE_ACCOUNT_NAME }}.blob.core.windows.net/${{ vars.AZURE_STORAGE_ACCOUNT_CONTAINER }}" --exclude-pattern "*.json;*.yml;" --recursive
+        run: azcopy copy "*" "https://${{ vars.AZURE_STORAGE_ACCOUNT_NAME }}.blob.core.windows.net/${{ vars.AZURE_STORAGE_ACCOUNT_CONTAINER }}" --exclude-pattern "*.json;*.yml;" --recursive
             
       - name: Log out of Azure
         run: |
