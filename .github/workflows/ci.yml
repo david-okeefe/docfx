@@ -111,7 +111,7 @@ jobs:
         uses: azure/CLI@v1
         with:
           inlineScript: |
-            az storage blob sync -c ${{ vars.AZURE_STORAGE_ACCOUNT_CONTAINER }} --account-name ${{ vars.AZURE_STORAGE_ACCOUNT_NAME }} --account-key ${{ secrets.AZURE_STORAGE_ACCOUNT_KEY }} -s . --exclude-pattern "*.yaml;*.json;"
+            az storage blob sync -c ${{ vars.AZURE_STORAGE_ACCOUNT_CONTAINER }} --account-name ${{ vars.AZURE_STORAGE_ACCOUNT_NAME }} --account-key ${{ secrets.AZURE_STORAGE_ACCOUNT_KEY }} -s "./docs/" --exclude-pattern "*.yml;*.json;*.order;*.override;"
             
       - name: Log out of Azure
         run: |
