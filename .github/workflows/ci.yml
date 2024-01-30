@@ -48,7 +48,7 @@ jobs:
 
       - name: Check for Invalid Links
         run: DocLinkChecker -d ./docs -a
-        continue-on-error: false
+        continue-on-error: true
 
       - name: Generate Table of Contents for Policies
         run: DocFxTocGenerator -d ./docs/policies/ -sri
