@@ -40,12 +40,11 @@ jobs:
         shell: pwsh
         run: choco install docfx-companion-tools -y
 
+      - name: Install Markdown Lint
+        run: npm install markdownlint-cli2 --global
+
       - name: Check for Markdown Syntax Errors
-        uses: DavidAnson/markdownlint-cli2-action@v14
-        with:
-          config: './docs/.markdownlint.json'
-          fix: true
-          globs: '**/*.md'
+        run: markdownlint-cli2 --config "./docs/.markdownlint.json" --fix "**/*.md"
 
       - name: Check for Invalid Links
         run: DocLinkChecker -d ./docs -a
