@@ -6,7 +6,7 @@ A Guide is a ___
 ## How are Guides different than Procedures?
 A Guide is different from a Procedure ___
 
-### [Tab1](#tab/tab1)
+### [GitHub](#tab/github)
 
 #### Heading Level 4 - Part A
 
@@ -18,11 +18,11 @@ A Guide is different from a Procedure ___
 
 Text content here.
 
-### [Tab2](#tab/tab2)
+### [Codespaces](#tab/codespaces)
 
 Content for Tab 2...
 
-### [Tab3](#tab/tab3)
+### [VS Code](#tab/vscode)
 
 Content for Tab 3...
 
