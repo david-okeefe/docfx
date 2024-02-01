@@ -16,7 +16,7 @@ A Guide is different from a Procedure ___
 
 #### Heading Level 4 - Part B
 
-Text content here.
+Text content for second heading.
 
 ### [Codespaces](#tab/codespaces)
 
