@@ -28,7 +28,7 @@ Content for Tab 3...
 
 ---
 
-```mermaid
+```text
 &#96;&#96;&#96;mermaid
 flowchart LR
 
