@@ -3,7 +3,7 @@
 Example State Diagram
 
 ```mermaid
-stateDiagram
+stateDiagram-v2
 
 state "CVP" as CVP
 state "Admin" as BusinessAdmin
