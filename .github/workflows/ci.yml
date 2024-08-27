@@ -83,7 +83,7 @@ jobs:
   deploy:
     needs: build
     
-    name: "Deploy to GitHub Pages
+    name: "Deploy to GitHub Pages"
     runs-on: ubuntu-latest
     
     environment:
