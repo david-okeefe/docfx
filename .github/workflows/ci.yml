@@ -83,7 +83,7 @@ jobs:
   deploy:
     needs: build
     
-    name: "Deploy to GitHub Pages and Upload to Azure Blob Storage"
+    name: "Deploy to GitHub Pages
     runs-on: ubuntu-latest
     
     environment:
@@ -93,26 +93,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
-      - name: Check out the code
-        uses: actions/checkout@v3
-        with:
-          sparse-checkout: docs
-      
-      - name: Log in to Azure
-        uses: azure/login@v1
-        with:
-          client-id: ${{ secrets.AZURE_CLIENT_ID }}
-          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-
-      - name: Upload to Azure Blob Storage
-        uses: azure/CLI@v1
-        with:
-          inlineScript: |
-            az storage blob sync -c ${{ vars.AZURE_STORAGE_ACCOUNT_CONTAINER }} --account-name ${{ vars.AZURE_STORAGE_ACCOUNT_NAME }} --account-key ${{ secrets.AZURE_STORAGE_ACCOUNT_KEY }} -s "./docs/" --exclude-pattern "*.yml;*.json;*.order;*.override;"
-            
-      - name: Log out of Azure
-        run: |
-              az logout
-        if: always()
